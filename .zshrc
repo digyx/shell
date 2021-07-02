@@ -22,7 +22,10 @@ plugins=(
     doctl
     docker-compose
     cargo
+    rustup
     ansible
+    python
+    yarn
 )
 
 source $ZSH/oh-my-zsh.sh

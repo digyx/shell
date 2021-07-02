@@ -1,5 +1,5 @@
 # Install ohmyzsh
-sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo chown -R $(whoami) ~/.oh-my-zsh ~/.zshrc
 
 # Install thefuck, zsh-suggestion
