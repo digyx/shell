@@ -14,16 +14,11 @@ plugins=(
     sudo
     thefuck
     redis-cli
-    kubectl
-    helm
     golang
-    flutter
     docker
-    doctl
     docker-compose
     cargo
     rustup
-    ansible
     python
     yarn
 )
