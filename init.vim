@@ -1,7 +1,7 @@
 call plug#begin('~/local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'morhetz/gruvbox'
-    Plug 'preservim/nerdtree'
+    Plug 'ms-jpq/chadtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ryanoasis/vim-devicons'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -35,6 +35,7 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 lua << EOF
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.pyright.setup{}
 
 require('nvim-autopairs').setup({})
 require('nvim-autopairs.completion.compe').setup({
