@@ -17,8 +17,7 @@ plugins=(
     golang
     docker
     docker-compose
-    cargo
-    rustup
+    rust
     python
     yarn
 )
@@ -28,5 +27,7 @@ export GDK_DPI_SCALE=1.5
 export QT_AUTO_SCREEN_SCALE_FACTOR=1.5
 
 source $ZSH/oh-my-zsh.sh
+export PATH=$PATH:/opt/texlive/2021/bin/x86_64-linux
+export CHROME_EXECUTABLE=/usr/bin/chromium
 
-export $(grep -v '^#' .env | tr -d '"' | xargs -d '\n')
+# export $(grep -v '^#' .env | tr -d '"' | xargs -d '\n')

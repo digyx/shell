@@ -11,19 +11,6 @@ ln -sn $PWD/.config $HOME/.config
 ln -s $PWD/.zshrc $HOME/.zshrc
 touch $HOME/.z
 
-mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
-  bindsym l exec i3-msg exit
-  bindsym r exec systemctl reboot
-  bindsym s exec systemctl shutdown
-  bindsym k exec i3lock; mode "default"
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-
-}
-
-bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown, loc[k]"
-
-
 setup_macos() {
     # Install Homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
@@ -48,4 +35,4 @@ if [[ "$(uname)" == "Linux" ]]; then
     $INSTALL_CMD evince neofetch feh
     $INSTALL_CMD docker docker-compose
     $INSTALL_CMD texlive-full
-
+fi

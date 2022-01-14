@@ -23,17 +23,24 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 let g:coc_global_extensions = [
     \'coc-pairs',
     \'coc-json',
+    \'coc-git',
     \'coc-pyright',
     \'coc-go',
     \'coc-rust-analyzer',
     \'coc-clangd',
     \'coc-html',
     \'coc-css',
-    \'coc-tsserver'
+    \'coc-tsserver',
+    \'coc-flutter'
 \]
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <leader>def <Plug>(coc-definition)
+nmap <leader>typedef <Plug>(coc-type-definition)
+nmap <leader>impl <Plug>(coc-implementation)
+nmap <leader>ref <Plug>(coc-references)
+
+" Misc coc-commands
+nmap <leader>rename <Plug>(coc-rename)
+nmap <leader>help :CocDiagnostics<CR>
+nmap <leader>git <Plug>(coc-git-commit)
