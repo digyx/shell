@@ -44,3 +44,11 @@ nmap <leader>ref <Plug>(coc-references)
 nmap <leader>rename <Plug>(coc-rename)
 nmap <leader>help :CocDiagnostics<CR>
 nmap <leader>git <Plug>(coc-git-commit)
+
+" Language Specific Settings
+function! Golang_settings()
+    setlocal tabstop=4
+    setlocal noexpandtab
+endfunction
+
+autocmd FileType go call Golang_settings()
