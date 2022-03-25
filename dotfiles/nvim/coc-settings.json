@@ -1,3 +1,8 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["go"]
+    "coc.preferences.formatOnSaveFiletypes": ["go"],
+    "Lua.diagnostics.globals": [
+      "vim"
+    ],
+    "Lua.telemetry.enable": true,
+    "sumneko-lua.enableNvimLuaDev": true
 }
