@@ -38,6 +38,8 @@ let g:coc_global_extensions = [
     \'coc-sumneko-lua'
 \]
 
+nnoremap <silent> <Plug>(coc-hover) :<C-u>call CocActionAsync('definitionHover')<CR>
+
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gt <Plug>(coc-type-definition)
@@ -47,7 +49,7 @@ nmap <leader>gr <Plug>(coc-references)
 " Misc coc-commands
 nmap <leader>r <Plug>(coc-rename)
 nmap <leader>R <Plug>(coc-refactor)
-nmap <leader>h call CocActionAsync('definitionHover')
+nmap <leader>h <Plug>(coc-hover)
 
 command Imports call CocActionAsync('organizeImport')
 command GitDiff call CocActionAsync('runCommand', 'git.chunkInfo')
