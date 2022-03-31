@@ -53,7 +53,7 @@ nmap <leader>h <Plug>(coc-hover)
 
 command Imports call CocActionAsync('organizeImport')
 command GitDiff call CocActionAsync('runCommand', 'git.chunkInfo')
-command GitUndo call CocActionASync('runCommand', 'git.chunkUndo')
+command GitUndo call CocActionAsync('runCommand', 'git.chunkUndo')
 command GitShow call CocActionAsync('runCommand', 'git.showCommit')
 
 " Language Specific Settings
