@@ -15,9 +15,9 @@ set splitright
 set scrolloff=10
 
 tnoremap <Esc> <C-\><C-n>
-command TMK w | call system("latexmk -pdf && latexmk -c")
-command SHH set nonu norelativenumber scl=no
-command NOSHH set nu relativenumber scl=auto
+command TMK w | call system("latexmk -pdf " . expand("%")) | call system("latexmk -c")
+command Shh set nonu norelativenumber scl=no
+command NoShh set nu relativenumber scl=auto
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
     \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -41,10 +41,14 @@ let g:coc_global_extensions = [
 nnoremap <silent> <Plug>(coc-hover) :<C-u>call CocActionAsync('definitionHover')<CR>
 
 " GoTo code navigation.
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gt <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
+nmap gd <Plug>(coc-definition)
+nmap gt <Plug>(coc-type-definition)
+nmap gi <Plug>(coc-implementation)
+nmap gr <Plug>(coc-references)
+
+" Diagnostic navigation
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Misc coc-commands
 nmap <leader>r <Plug>(coc-rename)
