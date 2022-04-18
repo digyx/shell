@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'mattn/emmet-vim'
+    Plug 'NoahTheDuke/vim-just'
 call plug#end()
 
 "Theme
@@ -18,6 +19,12 @@ tnoremap <Esc> <C-\><C-n>
 command TMK w | call system("latexmk -pdf " . expand("%")) | call system("latexmk -c")
 command Shh set nonu norelativenumber scl=no
 command NoShh set nu relativenumber scl=auto
+
+autocmd BufWritePost *.tf call TerraformFormat()
+function TerraformFormat()
+    call system("terraform fmt " . expand("%"))"
+    edit
+endfunction
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
     \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
