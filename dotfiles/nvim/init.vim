@@ -3,7 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'mattn/emmet-vim'
-    Plug 'NoahTheDuke/vim-just'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'preservim/nerdtree'
 call plug#end()
 
 "Theme
@@ -16,15 +17,11 @@ set splitright
 set scrolloff=10
 
 tnoremap <Esc> <C-\><C-n>
+nmap <C-O> :NERDTreeToggle<CR>
+
 command TMK w | call system("latexmk -pdf " . expand("%")) | call system("latexmk -c")
 command Shh set nonu norelativenumber scl=no
 command NoShh set nu relativenumber scl=auto
-
-autocmd BufWritePost *.tf call TerraformFormat()
-function TerraformFormat()
-    call system("terraform fmt " . expand("%"))"
-    edit
-endfunction
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
     \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -45,8 +42,6 @@ let g:coc_global_extensions = [
     \'coc-sumneko-lua'
 \]
 
-nnoremap <silent> <Plug>(coc-hover) :<C-u>call CocActionAsync('definitionHover')<CR>
-
 " GoTo code navigation.
 nmap gd <Plug>(coc-definition)
 nmap gt <Plug>(coc-type-definition)
@@ -54,8 +49,8 @@ nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 
 " Diagnostic navigation
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
 " Misc coc-commands
 nmap <leader>r <Plug>(coc-rename)
@@ -68,9 +63,16 @@ command GitUndo call CocActionAsync('runCommand', 'git.chunkUndo')
 command GitShow call CocActionAsync('runCommand', 'git.showCommit')
 
 " Language Specific Settings
+autocmd FileType go call Golang_settings()
 function! Golang_settings()
     setlocal tabstop=4
     setlocal noexpandtab
 endfunction
 
-autocmd FileType go call Golang_settings()
+" Terraform Format on Save
+autocmd BufWritePost *.tf call TerraformFormat()
+function TerraformFormat()
+    call system("terraform fmt " . expand("%"))"
+    edit
+endfunction
+
