@@ -1,3 +1,5 @@
+set nocompatible
+
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'morhetz/gruvbox'
@@ -17,7 +19,8 @@ set splitright splitbelow
 set scrolloff=10
 
 tnoremap <Esc> <C-\><C-n>
-nmap <C-O> :NERDTreeToggle<CR>
+nmap <C-f> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=3
 
 command TMK w | call system("latexmk -pdf " . expand("%")) | call system("latexmk -c")
 command Shh set nonu norelativenumber scl=no
