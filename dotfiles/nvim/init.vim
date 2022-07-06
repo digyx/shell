@@ -7,6 +7,10 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mattn/emmet-vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'preservim/nerdtree'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 "Theme
@@ -19,7 +23,7 @@ set splitright splitbelow
 set scrolloff=10
 
 tnoremap <Esc> <C-\><C-n>
-nmap <C-f> :NERDTreeToggle<CR>
+nmap <C-f> :NERDTree<CR>
 let NERDTreeQuitOnOpen=3
 
 command TMK w | call system("latexmk -pdf " . expand("%")) | call system("latexmk -c")
@@ -50,6 +54,12 @@ nmap gd <Plug>(coc-definition)
 nmap gt <Plug>(coc-type-definition)
 nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
+
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Diagnostic navigation
 nmap <silent> [d <Plug>(coc-diagnostic-prev)

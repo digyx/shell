@@ -1,6 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:3400
+SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:/home/digyx/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e/home/digyx/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e/home/digyx/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
+SETUVAR _fisher_plugins:danhper/fish\x2dssh\x2dagent
 SETUVAR fish_color_autosuggestion:585858
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:a1b56c
