@@ -92,6 +92,37 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.scrolloff = 10
 
+-- Tab Settings
+vim.o.tabstop = 4
+vim.o.softtabstop = 0
+vim.o.expandtab = true
+vim.o.shiftwidth = 4
+vim.o.smarttab = true
+
+vim.api.nvim_create_autocmd(
+  { "FileType" },
+  {
+    pattern = {
+      "html",
+      "css",
+      "javascript",
+      "typescript",
+      "vue",
+    },
+    command = "setlocal shiftwidth=2",
+  }
+)
+
+vim.api.nvim_create_autocmd(
+  { "FileType" },
+  {
+    pattern = {
+      "go",
+    },
+    command = "setlocal noexpandtab"
+  }
+)
+
 -- General Keymaps
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 vim.keymap.set('n', '<leader>t', ':TestNearest<CR>')
