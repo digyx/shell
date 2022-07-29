@@ -37,6 +37,15 @@ require('mason-lspconfig').setup_handlers({
   end
 })
 
+-- Format on save
+vim.api.nvim_create_autocmd(
+  "BufWritePre",
+  {
+    pattern = { "<buffer>" },
+    callback = vim.lsp.buf.formatting_sync,
+  }
+)
+
 -- Autocomplete Setup
 local cmp = require('cmp')
 cmp.setup {
@@ -100,7 +109,7 @@ vim.o.shiftwidth = 4
 vim.o.smarttab = true
 
 vim.api.nvim_create_autocmd(
-  { "FileType" },
+  "FileType",
   {
     pattern = {
       "html",
@@ -108,13 +117,14 @@ vim.api.nvim_create_autocmd(
       "javascript",
       "typescript",
       "vue",
+      "lua",
     },
     command = "setlocal shiftwidth=2",
   }
 )
 
 vim.api.nvim_create_autocmd(
-  { "FileType" },
+  "FileType",
   {
     pattern = {
       "go",
