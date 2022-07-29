@@ -33,7 +33,7 @@ local lspconfig = require('lspconfig')
 require('mason').setup()
 require('mason-lspconfig').setup_handlers({
   function(server_name)
-    lspconfig[server_name].setup{}
+    lspconfig[server_name].setup {}
   end
 })
 
@@ -93,7 +93,7 @@ require('nvim-autopairs').setup()
 require('gitsigns').setup()
 
 -- General Options
-vim.cmd[[colorscheme gruvbox]]
+vim.cmd [[colorscheme gruvbox]]
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -141,6 +141,7 @@ vim.keymap.set('n', '<leader>T', ':TestFile<CR>')
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescope.find_files)
 vim.keymap.set('n', '<leader>fg', telescope.live_grep)
+vim.keymap.set('n', '<leader>fh', telescope.help_tags)
 
 -- LSP Keymaps
 vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover)
