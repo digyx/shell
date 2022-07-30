@@ -29,20 +29,41 @@ require('packer').startup(function(use)
 end)
 
 -- Automatic LSP Setup
+local lspconf = {
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' }
+        }
+      }
+    }
+  }
+}
+
 local lspconfig = require('lspconfig')
 require('mason').setup()
 require('mason-lspconfig').setup_handlers({
   function(server_name)
-    lspconfig[server_name].setup {}
+    local opts = lspconf[server_name]
+    if opts == nil then
+      opts = {}
+    end
+
+    lspconfig[server_name].setup(opts)
   end
 })
 
 -- Format on save
+local function format_on_save()
+  vim.lsp.buf.formatting_sync()
+end
+
 vim.api.nvim_create_autocmd(
   "BufWritePre",
   {
     pattern = { "<buffer>" },
-    callback = vim.lsp.buf.formatting_sync,
+    callback = format_on_save,
   }
 )
 
