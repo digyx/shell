@@ -56,7 +56,7 @@ require('mason-lspconfig').setup_handlers({
 
 -- Format on save
 local function format_on_save()
-  vim.lsp.buf.formatting_sync()
+  vim.lsp.buf.formatting()
 end
 
 vim.api.nvim_create_autocmd(
