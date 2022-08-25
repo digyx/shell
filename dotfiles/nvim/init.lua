@@ -10,6 +10,12 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'windwp/nvim-autopairs'
 
+  use 'numToStr/Comment.nvim'
+
+  -- Treesitter
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/playground'
+
   -- nvim-cmp plugins
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
@@ -26,7 +32,37 @@ require('packer').startup(function(use)
       'kyazdani42/nvim-web-devicons'
     }
   }
+
+  use {
+    "nvim-neorg/neorg",
+    requires = "nvim-lua/plenary.nvim"
+  }
+
+  use "folke/zen-mode.nvim"
 end)
+
+-- Caddyfile Grammar
+vim.filetype.add({
+  filename = {
+    ['Caddyfile'] = 'caddyfile',
+  }
+})
+
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true
+  }
+})
+
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+parser_config.caddyfile = {
+  install_info = {
+    url = '~/Code/tree-sitter-caddyfile',
+    files = { 'src/parser.c' },
+    branch = 'main',
+  },
+  filetype = 'caddyfile',
+}
 
 -- Automatic LSP Setup
 local lspconf = {
@@ -56,7 +92,7 @@ require('mason-lspconfig').setup_handlers({
 
 -- Format on save
 local function format_on_save()
-  vim.lsp.buf.formatting()
+  vim.lsp.buf.formatting_sync()
 end
 
 vim.api.nvim_create_autocmd(
@@ -94,6 +130,7 @@ cmp.setup {
   },
 
   sources = {
+    { name = "neorg" },
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
@@ -112,6 +149,24 @@ cmp.setup {
 require('lualine').setup()
 require('nvim-autopairs').setup()
 require('gitsigns').setup()
+require('Comment').setup()
+require('zen-mode').setup()
+require('neorg').setup({
+  load = {
+    ["core.defaults"] = {},
+    ["core.norg.completion"] = {
+      config = {
+        engine = "nvim-cmp",
+      }
+    },
+    ["core.integrations.nvim-cmp"] = {},
+    ["core.presenter"] = {
+      config = {
+        zen_mode = "zen-mode"
+      }
+    },
+  }
+})
 
 -- General Options
 vim.cmd [[colorscheme gruvbox]]
