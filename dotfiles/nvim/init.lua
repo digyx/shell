@@ -154,6 +154,8 @@ require('zen-mode').setup()
 require('neorg').setup({
   load = {
     ["core.defaults"] = {},
+    ["core.norg.concealer"] = {},
+    ["core.export"] = {},
     ["core.norg.completion"] = {
       config = {
         engine = "nvim-cmp",
