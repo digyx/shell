@@ -1,9 +1,0 @@
-{
-    "coc.preferences.formatOnSaveFiletypes": ["go", "rust"],
-    "Lua.diagnostics.globals": [
-      "vim"
-    ],
-    "Lua.telemetry.enable": true,
-    "sumneko-lua.enableNvimLuaDev": true,
-    "rust-analyzer.inlayHints.typeHints": false
-}
