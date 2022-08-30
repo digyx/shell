@@ -52,6 +52,7 @@ end)
 require('opts')
 require('mappings')
 
+require('ts')
 require('lsp')
 require('completion')
 require('mini')
