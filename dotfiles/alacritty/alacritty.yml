@@ -31,7 +31,7 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   dimensions:
-    columns: 80 
+    columns: 80
     lines: 24
 
   # Window position (changes require restart)
@@ -112,7 +112,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: NotoMono Nerd Font mono
+    family: SourceCodePro
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
