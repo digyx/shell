@@ -7,6 +7,7 @@ vim.o.splitbelow = true
 vim.o.scrolloff = 10
 
 vim.o.foldenable = false
+vim.api.nvim_set_var('tex_flavor', 'latex')
 
 -- Tab Settings
 vim.o.tabstop = 4
