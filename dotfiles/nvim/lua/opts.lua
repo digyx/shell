@@ -1,17 +1,18 @@
 vim.cmd [[colorscheme gruvbox]]
 
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.splitright = true
-vim.o.splitbelow = true
-vim.o.scrolloff = 10
+vim.opt.wrap = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.scrolloff = 10
 
-vim.o.foldenable = false
+vim.opt.foldenable = false
 vim.api.nvim_set_var('tex_flavor', 'latex')
 
 -- Tab Settings
-vim.o.tabstop = 4
-vim.o.softtabstop = 0
-vim.o.expandtab = true
-vim.o.shiftwidth = 4
-vim.o.smarttab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 0
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.smarttab = true

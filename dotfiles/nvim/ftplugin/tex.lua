@@ -1,4 +1,5 @@
 vim.keymap.set('n', 'gB', ':!tectonic main.tex<CR>')
+vim.opt.wrap = true
 
 local function getWords()
   local words = vim.fn.wordcount().words

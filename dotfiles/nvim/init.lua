@@ -5,6 +5,8 @@ require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'j-hui/fidget.nvim'
+  use 'ray-x/lsp_signature.nvim'
 
   use 'nvim-lualine/lualine.nvim'
   use 'morhetz/gruvbox'
