@@ -19,3 +19,5 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '[g', ":Gitsigns prev_hunk<CR>")
+vim.keymap.set('n', ']g', ":Gitsigns next_hunk<CR>")
