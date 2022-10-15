@@ -8,19 +8,29 @@ require('packer').startup(function(use)
   use 'j-hui/fidget.nvim'
   use 'ray-x/lsp_signature.nvim'
   use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
+    'glepnir/lspsaga.nvim',
+    branch = 'main',
     config = function()
-      require("lspsaga").init_lsp_saga({})
+      require('lspsaga').init_lsp_saga({})
     end,
   })
   use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require("trouble").setup({})
+      require('trouble').setup({})
     end
   }
+
+  -- DAP
+  use 'mfussenegger/nvim-dap'
+  use {
+    'rcarriga/nvim-dap-ui',
+    config = function()
+      require('dapui').setup()
+    end
+  }
+  use 'mfussenegger/nvim-dap-python'
 
   use 'nvim-lualine/lualine.nvim'
   use 'morhetz/gruvbox'
@@ -69,6 +79,7 @@ require('mappings')
 
 require('ts')
 require('lsp')
+require('dap-config')
 require('completion')
 require('mini')
 
