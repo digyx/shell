@@ -7,6 +7,20 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'j-hui/fidget.nvim'
   use 'ray-x/lsp_signature.nvim'
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require("lspsaga").init_lsp_saga({})
+    end,
+  })
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+    end
+  }
 
   use 'nvim-lualine/lualine.nvim'
   use 'morhetz/gruvbox'
