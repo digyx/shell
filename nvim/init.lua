@@ -31,6 +31,7 @@ require('packer').startup(function(use)
     end
   }
   use 'mfussenegger/nvim-dap-python'
+  use 'leoluz/nvim-dap-go'
 
   use 'nvim-lualine/lualine.nvim'
   use 'morhetz/gruvbox'

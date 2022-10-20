@@ -22,7 +22,17 @@ vim.api.nvim_create_autocmd(
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local language_servers = { 'gopls', 'pyright', 'rust_analyzer', 'html', 'cssls', 'tsserver', 'emmet_ls', 'sumneko_lua' }
+local language_servers = {
+  'gopls',
+  'pyright',
+  'rust_analyzer',
+  'elixirls',
+  'html',
+  'cssls',
+  'tsserver',
+  'emmet_ls',
+  'sumneko_lua',
+}
 local settings = {
   Lua = {
     diagnostics = {

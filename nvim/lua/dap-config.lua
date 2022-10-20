@@ -21,3 +21,4 @@ vim.keymap.set('n', '<Space>s', dap.step_over)
 
 -- Adapters
 require('dap-python').setup()
+require('dap-go').setup()
