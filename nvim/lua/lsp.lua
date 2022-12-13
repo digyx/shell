@@ -7,15 +7,21 @@ require('mason-lspconfig').setup({
 })
 
 -- Format on save
-vim.api.nvim_create_autocmd(
-  'BufWritePre',
-  {
-    pattern = { '<buffer>' },
-    callback = function()
-      vim.lsp.buf.format({})
-    end,
-  }
-)
+local on_attach = function(client, bufnr)
+  if not client.supports_method("textDocument/formatting") then
+    return
+  end
+
+  vim.api.nvim_create_autocmd(
+    'BufWritePre',
+    {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format()
+      end,
+    }
+  )
+end
 
 
 -- Language Servers
@@ -45,5 +51,6 @@ for _, server in ipairs(language_servers) do
   require('lspconfig')[server].setup({
     capabilities = capabilities,
     settings = settings,
+    on_attach = on_attach,
   })
 end
