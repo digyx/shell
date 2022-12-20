@@ -28,6 +28,9 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym Control+Mod1+t exec alacritty
 
+# open emacs
+bindsym $mod+Shift+Return exec emacs
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

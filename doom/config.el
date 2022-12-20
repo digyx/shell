@@ -70,8 +70,18 @@
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 ;; This will open documentation for it, including demos of how they are used.
-;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
+;; Alternatively, use `C-h o' to look up a symbol (functions, variables, facs,
 ;; etc).
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (setq TeX-command-default "Tectonic")))
+
+(after! (latex tex)
+  (add-to-list 'TeX-command-list
+    '("Tectonic" "tectonic %s.tex" TeX-run-command nil t)))
+
+(after! (lsp-volar)
+(setq lsp-typescript-tsdk (file-name-directory (lsp-volar-get-typescript-server-path))))
