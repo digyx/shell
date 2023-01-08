@@ -37,7 +37,7 @@ max_vol = 100
 
 [[block]]
 block = "time"
-format = "%a %m/%d %r"
+format = "%a %m/%d %T"
 timezone = "US/Eastern"
 interval = 1
 locale = "en_US"
