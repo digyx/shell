@@ -9,9 +9,8 @@
   (-> conf
       (dap--put-if-absent :dap-server-path (list (concat (file-name-as-directory lsp-elixir-ls-server-dir) "debugger.sh")))
       (dap--put-if-absent :type "mix_task")
-      (dap--put-if-absent :name "mix run")
+      (dap--put-if-absent :name "mix default")
       (dap--put-if-absent :request "launch")
-      (dap--put-if-absent :task "run")
       (dap--put-if-absent :projectDir (lsp-find-session-folder (lsp-session) (buffer-file-name)))
       (dap--put-if-absent :cwd (lsp-find-session-folder (lsp-session) (buffer-file-name)))))
 
