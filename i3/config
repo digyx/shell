@@ -29,7 +29,7 @@ bindsym $mod+Return exec alacritty
 bindsym Control+Mod1+t exec alacritty
 
 # open emacs
-bindsym $mod+Shift+Return exec emacs
+bindsym $mod+Shift+Return exec emacsclient -c
 
 # kill focused window
 bindsym $mod+Shift+q kill
