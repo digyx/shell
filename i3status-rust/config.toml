@@ -1,31 +1,27 @@
 [theme]
-name = "gruvbox-dark"
+theme = "gruvbox-dark"
 
 [icons]
-name = "awesome"
-
+icons = "awesome4"
 
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage} {time}"
+format = "$icon $percentage $time"
 full_threshold = 85
 
 [[block]]
 block = "temperature"
-format = "{min}{average}{max}"
+format = "$icon $min $average $max"
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{barchart} {utilization} {frequency}"
+format = "$icon $barchart $utilization $frequency"
 
 [[block]]
 block = "memory"
-format_mem = "{mem_used} ({mem_used_percents})"
-display_type = "memory"
-clickable = false
-icons = true
+format = "$icon $mem_used ($mem_used_percents)"
 interval = 5
 warning_mem = 80
 critical_mem = 95
@@ -37,7 +33,6 @@ max_vol = 100
 
 [[block]]
 block = "time"
-format = "%a %m/%d %T"
+format = "$icon $timestamp.datetime(f:'%a %m/%d %T')"
 timezone = "US/Eastern"
 interval = 1
-locale = "en_US"
