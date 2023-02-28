@@ -19,6 +19,10 @@ function update
         gup update
     end
 
+    if type -q pipx
+        pipx upgrade-all
+    end
+
     if type -q cargo
         cargo install-update --all
     end
