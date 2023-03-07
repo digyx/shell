@@ -83,9 +83,6 @@
   (add-to-list 'TeX-command-list
     '("Tectonic" "tectonic %s.tex" TeX-run-command nil t)))
 
-(after! (lsp-volar)
-(setq lsp-typescript-tsdk (file-name-directory (lsp-volar-get-typescript-server-path))))
-
 ;; dap-mode config
 (after! dap-mode
   ;; Golang
@@ -94,6 +91,17 @@
   ;; Python
   (require 'dap-python)
   (setq dap-python-debugger 'debugpy)
+
+  ;; Rust
+  (require 'dap-cpptools)
+  (require 'dap-gdb-lldb)
+  (dap-register-debug-template
+   "Rust::GDB Run Configuration"
+   (list :type "gdb"
+         :request "launch"
+         :name "GDB::Run"
+         :gdbpath "rust-gdb"
+         :cwd nil))
 
   ;; Elixir
   (load! "dap-elixir"))
