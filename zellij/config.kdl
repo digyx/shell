@@ -1,0 +1,8 @@
+keybinds {
+	normal {
+		bind "Ctrl w" { SwitchToMode "pane"; }
+	}
+	tab {
+		bind "q" { CloseTab; }
+	}
+}
