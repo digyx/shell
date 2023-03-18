@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Vue Component
+# uuid: vue-component
+# key: vue-new
+# condition: t
+# --
+<script setup lang="ts">
+
+</script>
+
+<template>
+
+</template>
