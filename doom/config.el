@@ -28,7 +28,7 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-(setq doom-font (font-spec :family "SourceCodePro" :size 18 :weight 'regular))
+(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 14 :weight 'regular))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -82,6 +82,8 @@
 (after! (latex tex)
   (add-to-list 'TeX-command-list
     '("Tectonic" "tectonic %s.tex" TeX-run-command nil t)))
+
+(setq-hook! 'web-mode-hook +format-with-lsp nil)
 
 ;; dap-mode config
 (after! dap-mode
