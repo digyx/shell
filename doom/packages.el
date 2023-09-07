@@ -8,7 +8,6 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 (package! just-mode)
-(package! protobuf-mode)
 (package! wakatime-mode)
 
 (package! prisma-mode :recipe (:host github :repo "pimeys/emacs-prisma-mode" :branch "main"))
