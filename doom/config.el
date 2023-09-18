@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Devon Tingley"
-      user-mail-address "dtingley@twilit.com")
+(setq user-full-name "Roman Godmaire"
+      user-mail-address "godmaire@twilit.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -42,7 +42,6 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
-(add-hook! 'elfeed-search-mode-hook #'elfeed-update)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -75,6 +74,11 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Elfeed
+(add-hook! 'elfeed-search-mode-hook #'elfeed-update)
+
+;; Latex config
 (add-hook 'LaTeX-mode-hook
           (lambda ()
             (setq TeX-command-default "Tectonic")))
@@ -83,7 +87,17 @@
   (add-to-list 'TeX-command-list
     '("Tectonic" "tectonic %s.tex" TeX-run-command nil t)))
 
+;; Web-Mode LSP Config
 (setq-hook! 'web-mode-hook +format-with-lsp nil)
+
+;; Dired config
+(add-hook 'dired-after-readin-hook 'dired-git-info-auto-enable)
+
+;; Zen config
+(add-hook 'writeroom-mode-enable-hook
+          (lambda () (display-line-numbers-mode -1)))
+(add-hook 'writeroom-mode-disable-hook
+          (lambda () (display-line-numbers-mode)))
 
 ;; dap-mode config
 (after! dap-mode
