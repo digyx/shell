@@ -58,11 +58,20 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Shell configurations
   programs.fish = {
       enable = true;
+      loginShellInit = ''
+        set -x XDG_DATA_DIRS $HOME/.nix-profile/share:$XDG_DATA_DIRS
+      '';
       interactiveShellInit = ''
         set fish_greeting
       '';
+    };
+
+  programs.rtx = {
+      enable = true;
+      enableFishIntegration = true;
     };
 
   programs.starship = {
@@ -70,7 +79,7 @@
       enableFishIntegration = true;
     };
 
-  programs.rtx = {
+  programs.yazi = {
       enable = true;
       enableFishIntegration = true;
     };
@@ -80,6 +89,7 @@
       enableFishIntegration = true;
     };
 
+  # Programming configurations
   programs.git = {
       enable = true;
       userName = "Roman Godmaire";
@@ -107,10 +117,5 @@
   programs.neovim = {
       enable = true;
       defaultEditor = true;
-    };
-
-  programs.yazi = {
-      enable = true;
-      enableFishIntegration = true;
     };
 }
