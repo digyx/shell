@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: TTRPG Plot - Who What When Where Clues
+# uuid: ttrpg-plot-wwwwc
+# key: ttrpg-plot-wwwwc
+# condition: t
+# --
+- Who? -- $1
+  - Why? $0
+- What? -- $2
+  - Why?
+- When? -- $3
+  - Why?
+- Where? -- $4
+  - Why?
+- Clues
+  - $5
