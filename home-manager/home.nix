@@ -24,6 +24,11 @@
     pkgs.bat
     pkgs.just
     pkgs.tokei
+
+    pkgs.gopls
+    pkgs.delve
+    pkgs.gore
+    pkgs.gotests
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -59,8 +64,16 @@
   programs.home-manager.enable = true;
 
   # Shell configurations
+  programs.alacritty = {
+      enable = true;
+    };
+
   programs.fish = {
       enable = true;
+      shellInit = ''
+        fish_add_path $HOME/.emacs.d/bin/
+        fish_add_path $HOME/.cargo/bin/
+      '';
       loginShellInit = ''
         set -x XDG_DATA_DIRS $HOME/.nix-profile/share:$XDG_DATA_DIRS
       '';
@@ -112,6 +125,10 @@
   programs.emacs = {
       enable = true;
       package = pkgs.emacs;
+
+      extraPackages = epkgs: [
+        epkgs.vterm
+      ];
     };
 
   programs.neovim = {
