@@ -17,18 +17,30 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.ripgrep
-    pkgs.fd
-    pkgs.sd
-    pkgs.bat
-    pkgs.just
-    pkgs.tokei
+  home.packages = with pkgs; [
+    ripgrep
+    fd
+    sd
+    bat
+    just
+    tokei
 
-    pkgs.gopls
-    pkgs.delve
-    pkgs.gore
-    pkgs.gotests
+    # Golang tools
+    go
+    gopls
+    delve
+    gore
+    gotests
+
+    # Shell tools
+    shellcheck
+    shfmt
+
+    # Python tools
+    black
+    ruff
+    isort
+    pipenv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -126,8 +138,10 @@
       enable = true;
       package = pkgs.emacs;
 
-      extraPackages = epkgs: [
-        epkgs.vterm
+      extraPackages = epkgs: with epkgs; [
+        emacsql-sqlite
+        pdf-tools
+        vterm
       ];
     };
 
