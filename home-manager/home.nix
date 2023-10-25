@@ -25,22 +25,32 @@
     just
     tokei
 
-    # Golang tools
+    # Elixir
+    elixir
+    elixir-ls
+
+    # Golang
     go
     gopls
     delve
     gore
     gotests
 
-    # Shell tools
+    # Node
+    nodejs
+    nodePackages.pnpm
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.svelte-language-server
+
+    # Python
+    pipenv
+    pyright
+    ruff
+
+    # Shell
     shellcheck
     shfmt
-
-    # Python tools
-    black
-    ruff
-    isort
-    pipenv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
